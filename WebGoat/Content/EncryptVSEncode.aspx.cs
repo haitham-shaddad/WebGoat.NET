@@ -93,6 +93,7 @@ namespace OWASP.WebGoat.NET
 					sha = new SHA1Managed();
 			    	break;
 				case WG_Hash.Sha256:
+                default:
 					sha = new SHA256Managed();
 					break;
 			}
