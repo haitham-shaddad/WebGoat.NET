@@ -27,6 +27,17 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: FortifyOnDemandStatic@3
+  inputs:
+    FortifyProjects: 'source'
+    BSIToken: 'eyJ0ZW5hbnRJZCI6NzE0NSwidGVuYW50Q29kZSI6IlJlYWRpZnlfRk1BXzgxMjgzNzA2MyIsInJlbGVhc2VJZCI6NTg1ODMsInBheWxvYWRUeXBlIjoiQU5BTFlTSVNfUEFZTE9BRCIsImFzc2Vzc21lbnRUeXBlSWQiOjE0LCJ0ZWNobm9sb2d5VHlwZSI6Ii5ORVQiLCJ0ZWNobm9sb2d5VHlwZUlkIjoxLCJ0ZWNobm9sb2d5VmVyc2lvbiI6IjQuNyIsInRlY2hub2xvZ3lWZXJzaW9uSWQiOjE2LCJhdWRpdFByZWZlcmVuY2UiOiJBdXRvbWF0ZWQiLCJhdWRpdFByZWZlcmVuY2VJZCI6MiwiaW5jbHVkZVRoaXJkUGFydHkiOmZhbHNlLCJpbmNsdWRlT3BlblNvdXJjZUFuYWx5c2lzIjpmYWxzZSwicG9ydGFsVXJpIjoiaHR0cHM6Ly90cmlhbC5mb3J0aWZ5LmNvbS8iLCJhcGlVcmkiOiJodHRwczovL2FwaS50cmlhbC5mb3J0aWZ5LmNvbSIsInNjYW5QcmVmZXJlbmNlIjoiU3RhbmRhcmQiLCJzY2FuUHJlZmVyZW5jZUlkIjoxfQ'
+    APIAuthenticationType: '1'
+    APIKey: 'dc5611d6-958f-4dec-83e6-f7954fcafb3c'
+    APISecret: 'YXVDQjA6cHpPMEtPaWdWdz1wSG9FVmRCUzZgMDhF0'
+    EntitlementPreference: '1'
+    PurchaseEntitlements: false
+    PreferRemediation: false
+
 - task: WhiteSource Bolt@19
   displayName: 'Run SCA'
   inputs:
